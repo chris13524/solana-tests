@@ -16,8 +16,8 @@ async fn main() {
         CommitmentConfig::confirmed(), // TODO what commitment level should we use?
     );
 
-    let account1 = Keypair::from_base58_string(&std::fs::read_to_string("sol-account2.key").unwrap());
-    let account2 = Keypair::from_base58_string(&std::fs::read_to_string("sol-account1.key").unwrap());
+    let account1 = Keypair::from_base58_string(&std::fs::read_to_string("sol-account1.key").unwrap());
+    let account2 = Keypair::from_base58_string(&std::fs::read_to_string("sol-account2.key").unwrap());
 
     println!("Account1 public key: {}", account1.pubkey());
     println!("Account2 public key: {}", account2.pubkey());
