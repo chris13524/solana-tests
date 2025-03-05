@@ -7502,6 +7502,9 @@ name = "usdc-bridge"
 version = "0.1.0"
 dependencies = [
  "alloy",
+ "bincode",
+ "data-encoding",
+ "serde_json",
  "solana-client",
  "solana-sdk",
  "spl-associated-token-account",
