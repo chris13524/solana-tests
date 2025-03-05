@@ -251,7 +251,7 @@ async fn main() {
         println!("Allowance: {}", allowance);
         if allowance < U256::from(amount) {
             usdc_contract
-                .approve(bridge_contract, U256::from(amount))
+                .approve(bridge_contract, U256::from(amount * 2))
                 .send()
                 .await
                 .unwrap()
