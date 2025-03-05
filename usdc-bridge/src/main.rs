@@ -250,14 +250,15 @@ async fn main() {
             .remaining;
         println!("Allowance: {}", allowance);
         if allowance < U256::from(amount) {
-            usdc_contract
+            assert!(usdc_contract
                 .approve(bridge_contract, U256::from(amount * 2))
                 .send()
                 .await
                 .unwrap()
                 .get_receipt()
                 .await
-                .unwrap();
+                .unwrap()
+                .status());
         }
 
         let transaction_request = TransactionRequest::default()
@@ -305,6 +306,7 @@ async fn main() {
             "Receipt: {}",
             serde_json::to_string_pretty(&receipt).unwrap()
         );
+        assert!(receipt.status());
 
         // TODO await bridge status
     }
